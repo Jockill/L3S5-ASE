@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include "asem.h"
+#include "shm.h"
 
 int main (int argc, char** argv)
 {
@@ -8,6 +10,8 @@ int main (int argc, char** argv)
 		exit(1);
 	}
 
-	//Bloquer l'acces en écriture à la mémoire partagée
-	//exec('./nettoyer');
+	//Lire segment
+	//segment.estOuvert = 0;
+
+	return 0;
 }

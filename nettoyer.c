@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include "asem.h"
+#include "shm.h"
 
 int main (int argc, char** argv)
 {

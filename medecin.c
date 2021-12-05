@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "asem.h"
+#include "shm.h"
 
 #define TAILLE_NOM_MAX 10
 
@@ -11,8 +13,5 @@ int main (int argc, char** argv)
 		exit(1);
 	}
 
-	// while (file.taille != 0)
-		// printf("BOX[%d] : %s\n", num, nom);
 
-	// printf("Fin box[%d]", num);
 }
