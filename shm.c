@@ -1,3 +1,8 @@
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 /* Macros pours les retour de fonctions */
 #define TEST(exp, msg) \
 do { \
@@ -18,6 +23,17 @@ do { \
 do { \
     if((exp) >0){ closeMe(#msg, fdn, __VA_ARGS__); } \
 } while (0)
+/****************************************/
+
+
+/* Structures ***************************/
+typedef struct segment
+{
+	int estOuvert;
+	asem_t placesLibres;
+	int nbrSieges;
+	asem_t sieges[];
+}segment;
 /****************************************/
 
 

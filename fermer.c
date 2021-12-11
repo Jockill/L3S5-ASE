@@ -10,8 +10,11 @@ int main (int argc, char** argv)
 		exit(1);
 	}
 
-	//Lire segment
-	//segment.estOuvert = 0;
+	int fd = shm_open("/segment", O_RDWR, 0666);
+	CHECK(fd, "shm_open");
 
+	
+
+	CHECK(smh_unlink("/segment"), "shm_unlink");
 	return 0;
 }
