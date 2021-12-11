@@ -1,5 +1,5 @@
 #include <pthread.h>
-#include <semaphores.h>
+#include <semaphore.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "asem.h"
@@ -61,6 +61,7 @@ int main(int argc, char** argv)
 	int sieges = strtol(argv[1], NULL, 0);   //n
 	int medecins = strtol(argv[2], NULL, 0); //m
 	int tempsVax = strtol(argv[3], NULL, 0); //t
+
 
 	//Creer semaphore "place_disponible" à sieges
 	sem_t places;
