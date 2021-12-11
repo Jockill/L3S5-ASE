@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <vargs.h>
+#include "asem.h"
+
+#define NOM_SHM "/vaxx"
 
 /* Macros pours les retour de fonctions */
 #define TEST(exp, msg) \
@@ -31,8 +35,8 @@ typedef struct segment
 {
 	int estOuvert;
 	asem_t placesLibres;
-	int nbrSieges;
-	asem_t sieges[];
+	int nbrBox;
+	asem_t box[];
 }segment;
 /****************************************/
 
@@ -40,13 +44,13 @@ typedef struct segment
 /* Fonctions d'arret ********************/
 void stopMe(char* msg)
 {
-	fprintf(stderr, "%s\n", msg);
+	adebug(1, "%s\n", msg);
 	exit(1);
 }
 
 void killMe(char* msg)
 {
-	perror(msg);
+	adebug(1, perror(msg));
 	exit(1);
 }
 
@@ -55,7 +59,7 @@ void closeMe(char* msg, int fdc, ...)
 	va_list fdv;
 	va_start(fdv, fdc);
 
-	perror(msg);
+	adebug(1, perror(msg));
 	for (int i=0; i<fdc; i++)
 		close(va_arg(fdv, int));
 	exit(1);
