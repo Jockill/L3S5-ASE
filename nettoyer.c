@@ -6,7 +6,7 @@ int main (int argc, char** argv)
 {
 	if (argc > 1)
 	{
-		fprintf(stderr, "Usage: %s", argv[0]);
+		adebug(1, "Usage: %s", argv[0]);
 		exit(1);
 	}
 
@@ -15,4 +15,5 @@ int main (int argc, char** argv)
 
 	//if (mem != NULL)
 	//		mem_destroy()
+	return 0;
 }

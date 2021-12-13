@@ -20,6 +20,6 @@ int main (int argc, char** argv)
 	//wait while (seg->placesLibres > 0)
 	//munmap(NOM_SHM)
 
-	CHECK(smh_unlink(NOM_SHM), "shm_unlink");
+	CHECK(shm_unlink(NOM_SHM), "shm_unlink");
 	return 0;
 }

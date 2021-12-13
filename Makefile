@@ -36,7 +36,8 @@ DEVOIR = \
 	ouvrir.c fermer.c nettoyer.c medecin.c patient.c \
 	rapport.pdf
 
-PROGS = ouvrir fermer nettoyer medecin patient
+PROGS = ouvrir fermer
+# PROGS = ouvrir fermer nettoyer medecin patient
 
 all: $(PROGS)
 
@@ -61,7 +62,7 @@ test: $(PROGS)
 
 couverture-et-tests: clean coverage test gcov
 
-ctags:	
+ctags:
 	ctags *.[ch]
 
 rapport.pdf:	rapport.tex
@@ -80,4 +81,3 @@ clean:
 	rm -f tags core moodle.tgz
 	rm -rf moodle
 	rm -f devoir.tgz
-

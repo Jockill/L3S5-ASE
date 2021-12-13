@@ -14,10 +14,10 @@ void checkArgs(int argc, char** argv)
 		fprintf(stderr, "Usage: %s <nom>\n", argv[0]);
 		exit(1);
 	}
-	if (strlen(argv[1]) > TAILLE_NOM_MAX || strlen(argv[1]) == 0)
+	if (strlen(argv[1]) > MAX_NOMPAT || strlen(argv[1]) == 0)
 	{
-		fprintf(stderr, "Le nom du patient a une taille comprise entre 0 et 10\
-\	\	\	\	\	\	caracteres\n");
+		adebug(1, "Le nom du patient doit avoir une taille comprise entre 0 \
+et 10 caracteres\n");
 		exit(1);
 	}
 }
