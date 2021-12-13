@@ -1,8 +1,11 @@
 #include <errno.h>
+#include <fcntl.h>
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
 #include "asem.h"
 #include "shm.h"
 
@@ -33,7 +36,7 @@ void checkArgs(int argc, char** argv)
 
 void checkNettoyage(char* nom)
 {
-	shm_open(nom);
+	shm_open(nom, O_RDWR, 0666);
 	if (errno != ENOENT)
 	{
 		adebug(1, "Le centre n'est pas propre.\n");
