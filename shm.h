@@ -30,12 +30,35 @@ do { \
 
 
 /* Structures ***************************/
+typedef struct place
+{
+	int libre;
+	char nomPat[MAX_NOMSEM+1];
+}place;
+
+typedef struct box
+{
+	int libre;
+	int numMedecin;
+	int numSiegePatient;
+	char nomPat[MAX_NOMSEM+1];
+	asem_t* vaxMoi; //Entrée dans le box
+	asem_t* vaxxed; //Sortie du box
+}box;
+
 typedef struct segment
 {
 	int estOuvert;
-	asem_t placesLibres;
 	int nbrBox;
-	asem_t box[];
+	int nbrMedecins;
+	int medecinsPresents;
+	int patientsPresents;
+	int tempsVax;
+	asem_t* placesLibres;
+	asem_t* cherchePlace;
+	asem_t* chercheBox;
+	asem_t* medecinDispo;
+	asem_t* centreVide;
 }segment;
 /****************************************/
 
@@ -44,5 +67,11 @@ void stopMe(char* msg);
 void killMe(char* msg);
 void closeMe(char* msg, int fdc, ...);
 /****************************************/
+
+/* Gestion map **************************/
+void* getSegment(char* nom);
+size_t mapSize(segment* s);
+/****************************************/
+
 
 #endif
